@@ -22,3 +22,9 @@ make build
 ls -lh dst/
 ```
 
+## 成果物
+
+`fav` の部分はタグなので適宜他に置き換える
+
+https://cympfh.github.io/VRCDynamicPoster/fav/index.mp4
+https://cympfh.github.io/VRCDynamicPoster/fav/poster.mp4
