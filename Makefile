@@ -6,8 +6,8 @@ add:
 	bash script/add.sh $(ID) $(TAG)
 
 clean:
-	rm -rf dst
-	mkdir dst
+	rm -rf docs
+	mkdir docs
 
 build:
 	bash script/build.sh

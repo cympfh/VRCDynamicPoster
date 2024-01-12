@@ -14,10 +14,10 @@ for t in $(tags); do
 	fi
 
 	echo "Building $t"
-	docker run -v ${PWD}/dst:/app/dst --rm ${DOCKER_TAG} \
-		bash -c "dotnet run -- asset/$t dst/$t"
-	sudo chmod -R 755 dst
-	sudo chown -R $USER:$USER dst
-	ffmpeg -loop 1 -i dst/$t/index.bmp -vcodec libx264 -crf 1 -pix_fmt yuv420p -t 2 -r 1 -y dst/$t/index.mp4
-	ffmpeg -r 0.5 -i dst/$t/%d.png -vcodec libx264 -crf 1 -pix_fmt yuv420p -r 2 -y dst/$t/poster.mp4
+	docker run -v ${PWD}/docs:/app/docs --rm ${DOCKER_TAG} \
+		bash -c "dotnet run -- asset/$t docs/$t"
+	sudo chmod -R 755 docs
+	sudo chown -R $USER:$USER docs
+	ffmpeg -loop 1 -i docs/$t/index.bmp -vcodec libx264 -crf 1 -pix_fmt yuv420p -t 2 -r 1 -y docs/$t/index.mp4
+	ffmpeg -r 0.5 -i docs/$t/%d.png -vcodec libx264 -crf 1 -pix_fmt yuv420p -r 2 -y docs/$t/poster.mp4
 done
