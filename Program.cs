@@ -17,12 +17,11 @@ public class Program
     private static void Main(string[] args)
     {
         // デフォルト or コマンドラインから設定
-        var assetDir = args.Length > 2 ? args[1] : ASSET_PATH;
-        var worldBaseUrl = args.Length > 3 ? args[2] : VRC_WORLD_BASE_URL;
-        var avatarBaseUrl = args.Length > 4 ? args[3] : VRC_AVATAR_BASE_URL;
-        var limitNum = args.Length > 5 ? int.Parse(args[4]) : LIMIT_ENTRY_NUM;
-        // 現状帰る必要なさそう
-        var dstDir = DST_DIR;
+        var assetDir = args.Length > 0 ? args[0] : ASSET_PATH;
+        var dstDir = args.Length > 1 ? args[1] : DST_DIR;
+        var worldBaseUrl = VRC_WORLD_BASE_URL;
+        var avatarBaseUrl = VRC_AVATAR_BASE_URL;
+        var limitNum = LIMIT_ENTRY_NUM;
         var previewHtmlName = PREVIEW_HTML_NAME;
         var previewImageName = PREVIEW_IMAGE_NAME;
 
@@ -36,11 +35,11 @@ public class Program
         Console.WriteLine($"{nameof(previewImageName)}={previewImageName}");
 
         // 前回出力を破棄
-        // if (Directory.Exists(dstDir))
-        // {
-        //     Directory.Delete(dstDir, true);
-        // }
-        // Directory.CreateDirectory(dstDir);
+        if (Directory.Exists(dstDir))
+        {
+            Directory.Delete(dstDir, true);
+        }
+        Directory.CreateDirectory(dstDir);
 
         // ファイル一覧を取得
         var entries =
