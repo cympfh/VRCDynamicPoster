@@ -36,11 +36,11 @@ public class Program
         Console.WriteLine($"{nameof(previewImageName)}={previewImageName}");
 
         // 前回出力を破棄
-        if (Directory.Exists(dstDir))
-        {
-            Directory.Delete(dstDir, true);
-        }
-        Directory.CreateDirectory(dstDir);
+        // if (Directory.Exists(dstDir))
+        // {
+        //     Directory.Delete(dstDir, true);
+        // }
+        // Directory.CreateDirectory(dstDir);
 
         // ファイル一覧を取得
         var entries =
